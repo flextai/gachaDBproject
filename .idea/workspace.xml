@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="673edbaf-b91b-413e-bfc6-d6a8831df04a" name="Changes" comment="completed relational DDL for all 7 tables">
-      <change afterPath="$PROJECT_DIR$/businessLogic.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seed.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +125,7 @@
       <workItem from="1788761608434" duration="1770000" />
       <workItem from="1789375850452" duration="7945000" />
       <workItem from="1791458311179" duration="4220000" />
+      <workItem from="1791560728136" duration="2094000" />
     </task>
     <task id="LOCAL-00001" summary="completed relational DDL for all 7 tables">
       <option name="closed" value="true" />
