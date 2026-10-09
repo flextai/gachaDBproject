@@ -6,8 +6,6 @@ CREATE TABLE IF NOT EXISTS players(
     last_login timestamptz,
     free_currency INT NOT NULL DEFAULT 0 CHECK ( free_currency>=0 ),
     paid_currency INT NOT NULL DEFAULT 0 CHECK ( paid_currency>=0 ),
-    pity_counter INT NOT NULL DEFAULT 0 CHECK ( pity_counter>=0 ),
-    guaranteed BOOLEAN NOT NULL DEFAULT FALSE,
     player_lvl INT NOT NULL DEFAULT 1 CHECK ( player_lvl>=1 )
 );
 CREATE TABLE IF NOT EXISTS characters_and_weapons(
@@ -30,7 +28,8 @@ CREATE TABLE IF NOT EXISTS banner(
     start_date timestamptz not null,
     end_date timestamptz check ( end_date>start_date ),
     pull_cost bigint not null default 1 check ( pull_cost>0 ),
-    banner_type varchar(10) not null check ( banner_type in ('character','weapon','standard') )
+    banner_type varchar(10) not null check ( banner_type in ('character','weapon','standard') ),
+    featured_item_id int references characters_and_weapons(item_id)
 );
 CREATE TABLE IF NOT EXISTS pull_history(
     pull_id bigserial primary key,
@@ -59,4 +58,11 @@ CREATE TABLE IF NOT EXISTS subscription(
     daily_reward int not null default 90,
     last_claimed_at timestamptz,
     unique (player_id)
+);
+CREATE TABLE IF NOT EXISTS pity_counter(
+    player_id bigint not null references players(player_id) on delete cascade ,
+    banner_type varchar(10) not null check ( banner_type in('character','weapon','standard') ),
+    pity int not null default 0 check ( pity>=0 ),
+    guaranteed bool not null default false,
+    primary key (player_id,banner_type)
 );
